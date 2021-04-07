@@ -16,7 +16,7 @@
                                 <th>NIP Pengirim/Pegawai</th>
                                 <th>Nama Pengirim/Pegawai</th>
                                 <th>Barang</th>
-                                <th>Pengirim/Ekspedisi</th>
+                                <th>Penerima/Ekspedisi</th>
                                 <th>Tanggal Serah</th>
                                 <th>Divisi</th>
                                 <th>Aksi</th>

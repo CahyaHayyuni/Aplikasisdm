@@ -27,8 +27,14 @@
                     </div>
 
                     <div class="form-group">
-                        <label>Tanggal Terima</label>
-                        <input class="form-control" name="tgl_terima" type="date" />
+                        <label>Penerima</label>
+                        <input class="form-control" name="penerima" />
+
+                    </div>
+
+                    <div class="form-group">
+                        <label>Tanggal Serah</label>
+                        <input class="form-control" name="tgl_serah" type="date" />
 
                     </div>
 
@@ -68,15 +74,16 @@ if (isset($_POST['nama'])) {
     $nama = $pecah_nama[1];
 }
 $barang = isset($_POST['barang']) ? $_POST['barang'] : '';
-$tgl_terima = isset($_POST['tgl_terima']) ? $_POST['tgl_terima'] : '';
+$penerima = isset($_POST['penerima']) ? $_POST['barang'] : '';
+$tgl_serah = isset($_POST['tgl_serah']) ? $_POST['tgl_serah'] : '';
 $divisi = isset($_POST['divisi']) ? $_POST['divisi'] : '';
 
 $simpan = isset($_POST['simpan']) ? $_POST['simpan'] : '';
-
+echo $nama, $barang, $penerima, $tgl_serah, $divisi, $simpan;
 
 if ($simpan) {
 
-    $sql = $koneksi->query("insert into tb_barang_keluar (nip, nama, barang, tgl_terima, divisi)value('$nip', '$nama', '$barang', '$tgl_terima', '$divisi')");
+    $sql = $koneksi->query("insert into tb_barang_keluar (nip, nama, barang, penerima, tgl_serah, divisi)value('$nip', '$nama', '$barang', $penerima, '$tgl_serah', '$divisi')");
 
     if ($sql) {
 ?>
