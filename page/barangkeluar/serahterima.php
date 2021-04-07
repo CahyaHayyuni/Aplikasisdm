@@ -11,7 +11,7 @@ $divisi = $tampil['divisi'];
 
 <div class="panel panel-default">
     <div class="panel-heading">
-        Kembali
+        Serah Terima Barang Keluar
     </div>
     <div class="panel-body">
         <div class="row">
