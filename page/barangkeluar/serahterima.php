@@ -16,6 +16,22 @@ $divisi = $tampil['divisi'];
     <div class="panel-body">
         <div class="row">
             <div class="col-md-6">
+                <div class="container form-group" id="Cam"><b>Camera Preview...</b>
+                    <div id="my_camera"></div>
+                    <form>
+                        <input type="button" value="Ambil Foto" class="btn btn-warning" onClick="take_snapshot()">
+                    </form>
+                </div>
+                <div class="container form-group" id="Prev">
+                    <b>Hasil Foto Preview...</b>
+                    <div id="results"></div>
+                </div>
+                <div class="container form-group" id="Saved">
+                    <img id="uploaded" src="" />
+                    <br>
+                    <span id="loading"></span>
+                    <strong><span id="saved_text"></span></strong>
+                </div>
 
                 <form method="POST">
                     <div class="form-group">
@@ -104,9 +120,9 @@ $tgl_terima = isset($_POST['tgl_terima']) ? $_POST['tgl_terima'] : '';
 $tgl_serah = isset($_POST['tgl_serah']) ? $_POST['tgl_serah'] : '';
 $simpan = isset($_POST['simpan']) ? $_POST['simpan'] : '';
 
+echo $file_foto;
+
 if ($simpan) {
-
-
     $sql = $koneksi->query("insert into tb_histori_barang_keluar (id, nip, nama, barang, penerima, tgl_terima, tgl_serah, divisi) values ('$id', '$nip', '$nama', '$barang', '$penerima', '$tgl_terima', '$tgl_serah', '$divisi')");
     $koneksi->query("delete from tb_barang_keluar where id ='$id'");
 
