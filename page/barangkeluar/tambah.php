@@ -80,6 +80,7 @@ $divisi = isset($_POST['divisi']) ? $_POST['divisi'] : '';
 
 $simpan = isset($_POST['simpan']) ? $_POST['simpan'] : '';
 echo $nama, $barang, $penerima, $tgl_serah, $divisi, $simpan;
+die;
 
 if ($simpan) {
 
