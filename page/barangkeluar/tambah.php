@@ -74,7 +74,7 @@ if (isset($_POST['nama'])) {
     $nama = $pecah_nama[1];
 }
 $barang = isset($_POST['barang']) ? $_POST['barang'] : '';
-$penerima = isset($_POST['penerima']) ? $_POST['barang'] : '';
+$penerima = isset($_POST['penerima']) ? $_POST['penerima'] : '';
 $tgl_serah = isset($_POST['tgl_serah']) ? $_POST['tgl_serah'] : '';
 $divisi = isset($_POST['divisi']) ? $_POST['divisi'] : '';
 
