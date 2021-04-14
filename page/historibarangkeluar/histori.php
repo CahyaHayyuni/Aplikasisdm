@@ -45,7 +45,7 @@
                                 <td><?php echo $data['tgl_terima']; ?></td>
                                 <td><?php echo $data['tgl_serah']; ?></td>
                                 <td><?php echo $divisi; ?></td>
-
+                                <td><a href="?page=historibarangkeluar&aksi=view&id=<?php echo $data['id']; ?>" class="btn btn-info">View</a></td>
                                 </tr>
 
 

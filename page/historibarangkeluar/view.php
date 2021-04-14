@@ -19,7 +19,7 @@ $divisi = $tampil['divisi'];
 
                 <form method="POST">
                     <div class="form-group">
-                        <label>Nip Penerima/Pegawai</label>
+                        <label>Nip Pengirim/Pegawai</label>
                         <input class="form-control" name="nip" value="<?php echo $tampil['nip'] ?>" readonly />
                     </div>
 
