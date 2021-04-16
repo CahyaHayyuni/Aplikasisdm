@@ -138,6 +138,8 @@ if ($_SESSION['admin'] || $_SESSION['user']) {
                             } elseif ($page == "historibarangkeluar") {
                                 if ($aksi == "") {
                                     include "page/historibarangkeluar/histori.php";
+                                } elseif ($aksi == "view") {
+                                    include "page/historibarangmasuk/view.php";
                                 }
                             } elseif ($page == "") {
 

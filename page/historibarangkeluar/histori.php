@@ -14,7 +14,7 @@
                                 <th>NIP Pengirim/Pegawai</th>
                                 <th>Nama Pengirim/Pegawai</th>
                                 <th>Barang</th>
-                                <th>Penerima/Ekspedisi</th>
+                                <th>Pengirim/Ekspedisi</th>
                                 <th>Penerima Fisik</th>
                                 <th>Tanggal Terima</th>
                                 <th>Tanggal Serah</th>
@@ -40,7 +40,7 @@
                                 <td><?php echo $data['nip']; ?></td>
                                 <td><?php echo $data['nama']; ?></td>
                                 <td><?php echo $data['barang']; ?></td>
-                                <td><?php echo $data['penerima']; ?></td>
+                                <td><?php echo $data['pengirim']; ?></td>
                                 <td><?php echo $data['penerima']; ?></td>
                                 <td><?php echo $data['tgl_terima']; ?></td>
                                 <td><?php echo $data['tgl_serah']; ?></td>

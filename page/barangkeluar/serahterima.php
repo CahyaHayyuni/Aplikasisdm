@@ -121,7 +121,7 @@ $tgl_terima = isset($_POST['tgl_terima']) ? $_POST['tgl_terima'] : '';
 $tgl_serah = isset($_POST['tgl_serah']) ? $_POST['tgl_serah'] : '';
 $file_foto = isset($_POST['file_foto']) ? $_POST['file_foto'] : '';
 $simpan = isset($_POST['simpan']) ? $_POST['simpan'] : '';
-
+echo $id, $nip, $nama, $barang, $pengirim, $penerima, $tgl_terima, $tgl_serah, $file_foto, $simpan;
 echo $file_foto;
 
 if ($simpan) {
@@ -139,3 +139,44 @@ if ($simpan) {
 }
 
 ?>
+
+<script type="text/javascript" src="assets/webcam/webcam.js"></script>
+<script language="JavaScript">
+    function take_snapshot() {
+        Webcam.snap(function(data_uri) {
+            document.getElementById('results').innerHTML = '<img id="base64image" src="' + data_uri + '"/><br><button class="btn btn-warning" onclick="SaveSnap();">Simpan Foto</button>';
+        });
+    }
+
+    function ShowCam() {
+        Webcam.set({
+            width: 320,
+            height: 240,
+            image_format: 'jpeg',
+            jpeg_quality: 100
+        });
+        Webcam.attach('#my_camera');
+    }
+
+    function SaveSnap() {
+        document.getElementById("loading").innerHTML = "Saving, please wait...";
+        var file = document.getElementById("base64image").src;
+        var formdata = new FormData();
+        formdata.append("base64image", file);
+        var ajax = new XMLHttpRequest();
+        ajax.addEventListener("load", function(event) {
+            uploadcomplete(event);
+        }, false);
+        ajax.open("POST", "upload.php");
+        ajax.send(formdata);
+    }
+
+    function uploadcomplete(event) {
+        document.getElementById("loading").innerHTML = "";
+        var image_return = event.target.responseText;
+        var showup = document.getElementById("uploaded").src = image_return;
+        document.getElementById("file_foto").value = image_return;
+        document.getElementById("saved_text").innerHTML = "Berhasil Tersimpan";
+    }
+    window.onload = ShowCam;
+</script>
