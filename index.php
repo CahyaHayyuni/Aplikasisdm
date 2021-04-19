@@ -32,6 +32,14 @@ if ($_SESSION['admin'] || $_SESSION['user']) {
         <link rel="shortcut icon" href="assets/img/kitty.ico" />
         <!-- datatable -->
         <link href="assets/js/dataTables/dataTables.bootstrap.css" rel="stylesheet" />
+        <!-- css signature -->
+        <style>
+            #canvasDiv {
+                position: right;
+                border: 2px dashed grey;
+                height: 300px;
+            }
+        </style>
     </head>
 
     <body>
@@ -49,6 +57,17 @@ if ($_SESSION['admin'] || $_SESSION['user']) {
                 </div>
                 <div style="color: white;padding: 15px 50px 5px 50px;float: right;font-size: 16px;">
                     <?php echo date('d-m-Y'); ?> &nbsp; <a href="logout.php" class="btn btn-danger square-btn-adjust">Logout</a>
+                </div>
+
+                <div class="col-md-8 col-md-offset-2">
+                    <br>
+                    <?php echo isset($msg) ? $msg : ''; ?>
+                    <h2>HTML5 and PHP Signature Pad</h2>
+                    <hr>
+                    <div id="canvasDiv"></div>
+                    <br>
+                    <button type="button" class="btn btn-danger" id="reset-btn">Clear</button>
+                    <button type="button" class="btn btn-success" id="btn-save">Save</button>
                 </div>
             </nav>
             <!-- /. NAV TOP  -->
@@ -178,7 +197,9 @@ if ($_SESSION['admin'] || $_SESSION['user']) {
         </script>
         <!-- CUSTOM SCRIPTS -->
         <script src="assets/js/custom.js"></script>
-
+        <!-- SCTIPIS SIGNATURE -->
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.5.0-beta4/html2canvas.min.js"></script>
 
     </body>
 
