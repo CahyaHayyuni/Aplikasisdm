@@ -149,7 +149,7 @@ if ($_SESSION['admin'] || $_SESSION['user']) {
                                 if ($aksi == "") {
                                     include "page/historibarangkeluar/histori.php";
                                 } elseif ($aksi == "view") {
-                                    include "page/historibarangmasuk/view.php";
+                                    include "page/historibarangkeluar/view.php";
                                 }
                             } elseif ($page == "") {
 

@@ -110,6 +110,14 @@ $divisi = $tampil['divisi'];
 
                 </form>
             </div>
+            <div class="col-md-4">
+                <?php echo isset($msg) ? $msg : ''; ?>
+                <b>Tanda Tangan</b>
+                <div id="canvasDiv"></div>
+                <br>
+                <button type="button" class="btn btn-danger" id="reset-btn">Clear</button>
+                <button type="button" class="btn btn-success" id="btn-save">Save</button>
+            </div>
         </div>
     </div>
 </div>

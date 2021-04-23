@@ -34,13 +34,13 @@ $divisi = $tampil['divisi'];
                     </div>
 
                     <div class="form-group">
-                        <label>Pengirim</label>
-                        <input class="form-control" name="pengirim" value="<?php echo $tampil['pengirim'] ?>" readonly />
+                        <label>Teruju/Tujuan</label>
+                        <input class="form-control" name="tujuan" value="<?php echo $tampil['tujuan'] ?>" readonly />
                     </div>
 
                     <div class="form-group">
-                        <label>Penerima Fisik</label>
-                        <input class="form-control" name="penerima" value="<?php echo $tampil['penerima'] ?>" readonly />
+                        <label>Ekspedisi</label>
+                        <input class="form-control" name="ekspedisi" value="<?php echo $tampil['ekspedisi'] ?>" readonly />
                     </div>
 
                     <div class="form-group">
