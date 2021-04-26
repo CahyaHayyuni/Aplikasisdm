@@ -27,8 +27,11 @@
 
                     <div class="form-group">
                         <label>Ekspedisi</label>
-                        <input class="form-control" name="ekspedisi" />
+                        <select class="form-control" name="divisi">
+                            <option value="jnt">JNT</option>
+                            <option value="jne">JNE</option>
 
+                        </select>
                     </div>
 
                     <div class="form-group">
