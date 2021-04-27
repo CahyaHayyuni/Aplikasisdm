@@ -28,8 +28,14 @@
                     <div class="form-group">
                         <label>Ekspedisi</label>
                         <select class="form-control" name="divisi">
-                            <option value="jnt">JNT</option>
-                            <option value="jne">JNE</option>
+                            <option value="jnt">JNT Express</option>
+                            <option value="jne">JNE Express</option>
+                            <option value="tk">TIKI</option>
+                            <option value="sc">SiCepat</option>
+                            <option value="ge">Garuda Express</option>
+                            <option value="pl">Pandu Logistic</option>
+                            <option value="wl">Wahana Logistic</option>
+                            <option value="ee">ELS Express</option>
 
                         </select>
                     </div>
