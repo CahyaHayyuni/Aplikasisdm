@@ -78,6 +78,10 @@ if ($_SESSION['admin'] || $_SESSION['user']) {
                         </li>
 
                         <li>
+                            <a href="?page=ekspedisi"><i class="fa fa-users fa-2x"></i> Data Ekpedisi</a>
+                        </li>
+
+                        <li>
                             <a href="?page=barangmasuk"><i class="fa fa-download fa-2x"></i> Barang & Surat Masuk</a>
                         </li>
 
@@ -140,6 +144,16 @@ if ($_SESSION['admin'] || $_SESSION['user']) {
                                     include "page/anggota/ubah.php";
                                 } elseif ($aksi == "hapus") {
                                     include "page/anggota/hapus.php";
+                                }
+                            } elseif ($page == "ekspedisi") {
+                                if ($aksi == "") {
+                                    include "page/ekspedisi/ekspedisi.php";
+                                } elseif ($aksi == "tambah") {
+                                    include "page/ekspedisi/tambah.php";
+                                } elseif ($aksi == "ubah") {
+                                    include "page/ekspedisi/ubah.php";
+                                } elseif ($aksi == "hapus") {
+                                    include "page/ekspedisi/hapus.php";
                                 }
                             } elseif ($page == "historibarangmasuk") {
                                 if ($aksi == "") {
