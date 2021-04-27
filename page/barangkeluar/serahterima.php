@@ -56,7 +56,14 @@ $divisi = $tampil['divisi'];
 
                     <div class="form-group">
                         <label>Ekspedisi</label>
-                        <input class="form-control" name="ekspedisi" />
+                        <select class="form-control" name="ekspedisi">
+                            <?php
+                            $sql = $koneksi->query("select * from tb_ekspedisi order by id");
+                            while ($data = $sql->fetch_assoc()) {
+                                echo "<option value='$data[singkatan]'>$data[singkatan] </option>";
+                            }
+                            ?>
+                        </select>
                     </div>
 
                     <div class="form-group">
