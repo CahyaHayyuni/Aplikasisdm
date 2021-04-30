@@ -33,7 +33,7 @@ $divisi = $tampil['divisi'];
                     <strong><span id="saved_text"></span></strong>
                 </div>
 
-                <form method="POST">
+                <form method="POST" id="signatureform">
                     <div class="form-group">
                         <label>Nip Penerima/Pegawai</label>
                         <input class="form-control" name="nip" value="<?php echo $tampil['nip'] ?>" readonly />
@@ -105,19 +105,18 @@ $divisi = $tampil['divisi'];
                     <div>
                         <input type="hidden" name="id" value=<?= $id ?>>
                         <input type="hidden" name="file_foto" id="file_foto">
-                        <input type="submit" name="simpan" value="simpan" class="btn btn-primary">
+                        <input type="hidden" id="signature" name="signature">
+                        <input type="submit" name="simpan" value="simpan" class="btn btn-primary" id="btn-save">
                     </div>
-
-                </form>
             </div>
             <div class="col-md-4">
-                <?php echo isset($msg) ? $msg : ''; ?>
                 <b>Tanda Tangan</b>
                 <div id="canvasDiv"></div>
                 <br>
                 <button type="button" class="btn btn-danger" id="reset-btn">Clear</button>
-                <button type="button" class="btn btn-success" id="btn-save">Save</button>
             </div>
+            </form>
+
         </div>
     </div>
 </div>
@@ -135,16 +134,36 @@ $tgl_serah = isset($_POST['tgl_serah']) ? $_POST['tgl_serah'] : '';
 $file_foto = isset($_POST['file_foto']) ? $_POST['file_foto'] : '';
 $simpan = isset($_POST['simpan']) ? $_POST['simpan'] : '';
 
-echo $file_foto;
-
 if ($simpan) {
-    $sql = $koneksi->query("insert into tb_histori_barang_masuk (id, nip, nama, barang, ekspedisi, penerima_fisik, tgl_terima, tgl_serah, divisi, file_foto) values ('$id', '$nip', '$nama', '$barang', '$ekspedisi', '$penerima_fisik', '$tgl_terima', '$tgl_serah', '$divisi', '$file_foto')");
+    // post tanda tangan
+    $signature = $_POST['signature'];
+    $signatureFileName = uniqid() . '.png';
+    $signature = str_replace('data:image/png;base64,', '', $signature);
+    $signature = str_replace(' ', '+', $signature);
+    $data_ttd = base64_decode($signature);
+    $file_ttd = 'signatures/' . $signatureFileName;
+    file_put_contents($file_ttd, $data_ttd);
+
+    //email
+    <?php
+    ini_set( 'display_errors', 1 );   
+    error_reporting( E_ALL );    
+    $from = "testing@domainanda.com";    
+    $to = "alamatpenerima@domain.com";    
+    $subject = "Checking PHP mail";    
+    $message = "PHP mail berjalan dengan baik";   
+    $headers = "From:" . $from;    
+    mail($to,$subject,$message, $headers);    
+    echo "Pesan email sudah terkirim.";
+?>
+
+    $sql = $koneksi->query("insert into tb_histori_barang_masuk (id, nip, nama, barang, ekspedisi, penerima_fisik, tgl_terima, tgl_serah, divisi, file_foto, file_ttd) values ('$id', '$nip', '$nama', '$barang', '$ekspedisi', '$penerima_fisik', '$tgl_terima', '$tgl_serah', '$divisi', '$file_foto', '$file_ttd')");
     $koneksi->query("delete from tb_barang_masuk where id ='$id'");
 
     if ($sql) {
 ?>
         <script type="text/javascript">
-            alert("Ubah Berhasil Disimpan");
+            alert("Behasil Disimpan Dihistori");
             window.location.href = "?page=barangmasuk";
         </script>
 <?php

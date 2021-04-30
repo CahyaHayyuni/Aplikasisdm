@@ -10,7 +10,7 @@
 
                     <div class="form-group">
                         <label>Pengirim/Pegawai</label>
-                        <select class="form-control" name="nama">
+                        <select class="form-control" name="nama" required>
                             <?php
                             $sql = $koneksi->query("select * from tb_anggota order by nip");
                             while ($data = $sql->fetch_assoc()) {
@@ -22,24 +22,24 @@
 
                     <div class="form-group">
                         <label>Barang</label>
-                        <input class="form-control" name="barang" />
+                        <input class="form-control" name="barang" required />
 
                     </div>
 
                     <div class="form-group">
                         <label>Tertuju/Tujuan</label>
-                        <input class="form-control" name="tujuan" />
+                        <input class="form-control" name="tujuan" required />
                     </div>
 
                     <div class="form-group">
                         <label>Tanggal Serah</label>
-                        <input class="form-control" name="tgl_serah" type="date" />
+                        <input class="form-control" name="tgl_serah" type="date" required />
 
                     </div>
 
                     <div class="form-group">
                         <label>Divisi</label>
-                        <select class="form-control" name="divisi">
+                        <select class="form-control" name="divisi" required>
                             <option value="it">Informasi Teknologi</option>
                             <option value="tnk">Teknik</option>
                             <option value="kom">Komersial</option>

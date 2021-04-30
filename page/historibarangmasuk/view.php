@@ -91,6 +91,12 @@ $divisi = $tampil['divisi'];
                         <br>
                         <img src="<?php echo $tampil['file_foto'] ?>">
                     </div>
+
+                    <div class="form-group">
+                        <label>Tanda Tangan</label>
+                        <br>
+                        <img src="<?php echo $tampil['file_ttd'] ?>">
+                    </div>
                     <div>
                         <a href="<?php echo "?page=historibarangmasuk" ?>" class="btn btn-info">
                             << Kembali</a>

@@ -9,7 +9,7 @@
                 <form method="POST">
                     <div class="form-group">
                         <label>Penerima/Pegawai</label>
-                        <select class="form-control" name="nama">
+                        <select class="form-control select2" name="nama">
                             <?php
                             $sql = $koneksi->query("select * from tb_anggota order by nip");
                             while ($data = $sql->fetch_assoc()) {
@@ -27,7 +27,7 @@
 
                     <div class="form-group">
                         <label>Ekspedisi</label>
-                        <select class="form-control" name="ekspedisi">
+                        <select class="form-control select2" name="ekspedisi">
                             <?php
                             $sql = $koneksi->query("select * from tb_ekspedisi order by id");
                             while ($data = $sql->fetch_assoc()) {
@@ -99,5 +99,4 @@ if ($simpan) {
 <?php
     }
 }
-
 ?>

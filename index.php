@@ -31,7 +31,7 @@ if ($_SESSION['admin'] || $_SESSION['user']) {
         <!-- GOOGLE FONTS-->
         <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
         <!-- Shortcut Icon -->
-        <link rel="shortcut icon" href="assets/img/kitty.ico" />
+        <link rel="shortcut icon" href="assets/img/pelindo-favicon.ico" />
         <!-- datatable -->
         <link href="assets/js/dataTables/dataTables.bootstrap.css" rel="stylesheet" />
         <!-- css signature -->
@@ -42,6 +42,9 @@ if ($_SESSION['admin'] || $_SESSION['user']) {
                 height: 300px;
             }
         </style>
+        <!-- css dan js select2 -->
+        <link href="assets/css/select2.css" rel="stylesheet" />
+        <script src="assets/js/select2.js"></script>
     </head>
 
     <body>
@@ -54,8 +57,9 @@ if ($_SESSION['admin'] || $_SESSION['user']) {
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="index.html">IMAN</a>
-                    <h3 style="color: white; background-color: #A70303" ;> Inventory Management </h3>
+                    <a class="navbar-brand" href="index.html" style="background-color: #3295a8;">IMAN <br>
+                        <span style="font-size: 16px;">(Inventory Management)</span>
+                    </a>
                 </div>
                 <div style="color: white;padding: 15px 50px 5px 50px;float: right;font-size: 16px;">
                     <?php echo date('d-m-Y'); ?> &nbsp; <a href="logout.php" class="btn btn-danger square-btn-adjust">Logout</a>
@@ -66,7 +70,7 @@ if ($_SESSION['admin'] || $_SESSION['user']) {
                 <div class="sidebar-collapse">
                     <ul class="nav" id="main-menu">
                         <li class="text-center">
-                            <img src="assets/img/kitty.ico" class="user-image img-responsive" />
+                            <img src="assets/img/pelindo.png" class="user-image img-responsive" />
                         </li>
 
                         <li>
@@ -180,7 +184,7 @@ if ($_SESSION['admin'] || $_SESSION['user']) {
                 <!-- /. PAGE INNER  -->
             </div>
             <!-- /. PAGE WRAPPER  -->
-        </div>
+        </div><!-- selec2 -->
         <!-- /. WRAPPER  -->
         <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
         <!-- JQUERY SCRIPTS -->
@@ -194,11 +198,13 @@ if ($_SESSION['admin'] || $_SESSION['user']) {
         <script src="assets/js/dataTables/dataTables.bootstrap.js"></script>
         <script>
             $(document).ready(function() {
+                $('.select2').select2();
                 $('#dataTables-example').dataTable();
             });
         </script>
         <!-- CUSTOM SCRIPTS -->
         <script src="assets/js/custom.js"></script>
+
         <!-- SCRIPT SIGNATURE -->
         <script src="assets/js/jquery-3.4.1.slim.min.js" integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8=" crossorigin="anonymous"></script>
         <script src="assets/js/html2canvas.min.js"></script>
