@@ -144,19 +144,6 @@ if ($simpan) {
     $file_ttd = 'signatures/' . $signatureFileName;
     file_put_contents($file_ttd, $data_ttd);
 
-    //email
-    <?php
-    ini_set( 'display_errors', 1 );   
-    error_reporting( E_ALL );    
-    $from = "testing@domainanda.com";    
-    $to = "alamatpenerima@domain.com";    
-    $subject = "Checking PHP mail";    
-    $message = "PHP mail berjalan dengan baik";   
-    $headers = "From:" . $from;    
-    mail($to,$subject,$message, $headers);    
-    echo "Pesan email sudah terkirim.";
-?>
-
     $sql = $koneksi->query("insert into tb_histori_barang_masuk (id, nip, nama, barang, ekspedisi, penerima_fisik, tgl_terima, tgl_serah, divisi, file_foto, file_ttd) values ('$id', '$nip', '$nama', '$barang', '$ekspedisi', '$penerima_fisik', '$tgl_terima', '$tgl_serah', '$divisi', '$file_foto', '$file_ttd')");
     $koneksi->query("delete from tb_barang_masuk where id ='$id'");
 

@@ -34,6 +34,13 @@ $divisi = $tampil['divisi'];
 
                     </div>
 
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input class="form-control" name="email" value="<?php echo $tampil['email'] ?>" />
+
+                    </div>
+
+
                     <div class=" form-group">
                         <label>Tempat Lahir</label>
                         <input class="form-control" name="tmpt_lahir" value="<?php echo $tampil['tempat_lahir'] ?>" />
@@ -103,6 +110,7 @@ $divisi = $tampil['divisi'];
 
 $nip = isset($_POST['nip']) ? $_POST['nip'] : '';
 $nama = isset($_POST['nama']) ? $_POST['nama'] : '';
+$email = isset($_POST['email']) ? $_POST['email'] : '';
 $tmpt_lahir = isset($_POST['tmpt_lahir']) ? $_POST['tmpt_lahir'] : '';
 $tgl_lahir = isset($_POST['tgl_lahir']) ? $_POST['tgl_lahir'] : '';
 $jk = isset($_POST['jk']) ? $_POST['jk'] : '';
@@ -114,7 +122,7 @@ $simpan = isset($_POST['simpan']) ? $_POST['simpan'] : '';
 if ($simpan) {
 
     $sql = $koneksi->query("update tb_anggota set nama='$nama', tempat_lahir='$tmpt_lahir', tgl_lahir='$tgl_lahir',
-    jk='$jk', divisi='$divisi' where nip='$nip'");
+    jk='$jk', divisi='$divisi', email='$email' where nip='$nip'");
 
     if ($sql) {
 ?>

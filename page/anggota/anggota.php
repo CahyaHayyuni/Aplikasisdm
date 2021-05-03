@@ -17,6 +17,7 @@
                                 <th>Tanggal Lahir</th>
                                 <th>Jenis Kelamin </th>
                                 <th>Divisi</th>
+                                <th>Email</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
@@ -43,6 +44,7 @@
                                     <td><?php echo $data['tgl_lahir']; ?></td>
                                     <td><?php echo $jk; ?></td>
                                     <td><?php echo $divisi; ?></td>
+                                    <td><?php echo $data['email']; ?></td>
                                     <td>
                                         <a href="?page=anggota&aksi=ubah&id=<?php echo $data['nip']; ?>" class="btn btn-info">Ubah</a>
                                         <a onclick="return confirm('Anda Yakin Menghapus Data Ini?')" href="?page=anggota&aksi=hapus&id=<?php echo $data['nip']; ?>" class="btn btn-danger">Hapus</a>
