@@ -52,18 +52,15 @@
                         <label>Divisi</label>
                         <select class="form-control" name="divisi">
                             <option value="it">Informasi Teknologi</option>
-                            <<<<<<< HEAD <option value="tnk">Teknik</option>
-                                <option value="kom">Komersial</option>
-                                <option value="keu">Keuangan</option>
-                                <option value="qrm">Menegement Resiko & Mutu</option>
-                                <option value="tpkb">TPKB</option>
-                                <option value="trs">Trisakti</option>
-                                <option value="hsse">HSSE</option>
-                                <option value="umum">SDM & Umum</option>
-                                =======
-                                <option value="t">Teknik</option>
-                                >>>>>>> d3a2c8e0f65e209d3470badef6da8e488261d7f3
-                                ?>
+                            <option value="tnk">Teknik</option>
+                            <option value="kom">Komersial</option>
+                            <option value="keu">Keuangan</option>
+                            <option value="qrm">Menegement Resiko & Mutu</option>
+                            <option value="tpkb">TPKB</option>
+                            <option value="trs">Trisakti</option>
+                            <option value="hsse">HSSE</option>
+                            <option value="umum">SDM & Umum</option>
+                            <option value="t">Teknik</option>
                         </select>
                     </div>
 
@@ -88,12 +85,11 @@ $jk = isset($_POST['jk']) ? $_POST['jk'] : '';
 $divisi = isset($_POST['divisi']) ? $_POST['divisi'] : '';
 
 $simpan = isset($_POST['simpan']) ? $_POST['simpan'] : '';
-//echo $nip . $nama . $tmpt_lahir . $tgl_lahir . $jk . $divisi . $simpan;
 
 if ($simpan) {
-    //echo $simpan;
-    $sql = $koneksi->query("insert into tb_anggota (nip, nama, tempat_lahir, tgl_lahir, jk, divisi, email)value('$nip', '$nama', '$tmpt_lahir', '$tgl_lahir', '$jk', '$divisi', '$email')");
-    //echo $sql;
+
+    $sql = $koneksi->query("insert into tb_anggota (nip, nama, tempat_lahir, tgl_lahir, jk, divisi, email) values ('$nip', '$nama', '$tmpt_lahir', '$tgl_lahir', '$jk', '$divisi', '$email')");
+
     if ($sql) {
 ?>
         <script type="text/javascript">
