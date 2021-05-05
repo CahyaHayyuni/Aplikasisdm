@@ -4,13 +4,12 @@ session_start();
 
 
 include "function.php";
+include "email.php";
+
 
 $koneksi = new mysqli("localhost", "root", "", "db_aplikasisdm");
 
 if ($_SESSION['admin'] || $_SESSION['user']) {
-
-
-
 ?>
 
     <!DOCTYPE html>

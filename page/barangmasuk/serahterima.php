@@ -16,24 +16,18 @@ $divisi = $tampil['divisi'];
     <div class="panel-body">
         <div class="row">
             <div class="col-md-6">
-                <div class="container form-group" id="Cam"><b>Camera Preview...</b>
-                    <div id="my_camera"></div>
-                    <form>
-                        <input type="button" value="Ambil Foto" class="btn btn-warning" onClick="take_snapshot()">
-                    </form>
-                </div>
-                <div class="container form-group" id="Prev">
-                    <b>Hasil Foto Preview...</b>
-                    <div id="results"></div>
-                </div>
-                <div class="container form-group" id="Saved">
-                    <img id="uploaded" src="" />
+                <div class="form-group">
+                    <label>Foto/Gambar</label>
                     <br>
-                    <span id="loading"></span>
-                    <strong><span id="saved_text"></span></strong>
+                    <img src="<?php echo $tampil['file_foto'] ?>">
                 </div>
 
-                <form method="POST" id="signatureform">
+                <div class="form-group">
+                    <label>Tanda Tangan</label>
+                    <br>
+                    <img src="<?php echo $tampil['file_ttd'] ?>">
+                </div>
+                <form method="POST">
                     <div class="form-group">
                         <label>Nip Penerima/Pegawai</label>
                         <input class="form-control" name="nip" value="<?php echo $tampil['nip'] ?>" readonly />
@@ -104,19 +98,12 @@ $divisi = $tampil['divisi'];
 
                     <div>
                         <input type="hidden" name="id" value=<?= $id ?>>
-                        <input type="hidden" name="file_foto" id="file_foto">
-                        <input type="hidden" id="signature" name="signature">
-                        <input type="submit" name="simpan" value="simpan" class="btn btn-primary" id="btn-save">
+                        <input type="hidden" name="file_foto" value=<?php echo $tampil['file_foto'] ?>>
+                        <input type="hidden" name="file_ttd" value="<?php echo $tampil['file_ttd'] ?>">
+                        <input type="submit" name="simpan" value="simpan" class="btn btn-primary">
                     </div>
+                </form>
             </div>
-            <div class="col-md-4">
-                <b>Tanda Tangan</b>
-                <div id="canvasDiv"></div>
-                <br>
-                <button type="button" class="btn btn-danger" id="reset-btn">Clear</button>
-            </div>
-            </form>
-
         </div>
     </div>
 </div>
@@ -131,19 +118,11 @@ $ekspedisi = isset($_POST['ekspedisi']) ? $_POST['ekspedisi'] : '';
 $penerima_fisik = isset($_POST['penerima_fisik']) ? $_POST['penerima_fisik'] : '';
 $tgl_terima = isset($_POST['tgl_terima']) ? $_POST['tgl_terima'] : '';
 $tgl_serah = isset($_POST['tgl_serah']) ? $_POST['tgl_serah'] : '';
-$file_foto = isset($_POST['file_foto']) ? $_POST['file_foto'] : '';
 $simpan = isset($_POST['simpan']) ? $_POST['simpan'] : '';
+$file_foto = isset($_POST['file_foto']) ? $_POST['file_foto'] : '';
+$file_ttd = isset($_POST['file_ttd']) ? $_POST['file_ttd'] : '';
 
 if ($simpan) {
-    // post tanda tangan
-    $signature = $_POST['signature'];
-    $signatureFileName = uniqid() . '.png';
-    $signature = str_replace('data:image/png;base64,', '', $signature);
-    $signature = str_replace(' ', '+', $signature);
-    $data_ttd = base64_decode($signature);
-    $file_ttd = 'signatures/' . $signatureFileName;
-    file_put_contents($file_ttd, $data_ttd);
-
     $sql = $koneksi->query("insert into tb_histori_barang_masuk (id, nip, nama, barang, ekspedisi, penerima_fisik, tgl_terima, tgl_serah, divisi, file_foto, file_ttd) values ('$id', '$nip', '$nama', '$barang', '$ekspedisi', '$penerima_fisik', '$tgl_terima', '$tgl_serah', '$divisi', '$file_foto', '$file_ttd')");
     $koneksi->query("delete from tb_barang_masuk where id ='$id'");
 
@@ -156,46 +135,4 @@ if ($simpan) {
 <?php
     }
 }
-
 ?>
-
-<script type="text/javascript" src="assets/webcam/webcam.js"></script>
-<script language="JavaScript">
-    function take_snapshot() {
-        Webcam.snap(function(data_uri) {
-            document.getElementById('results').innerHTML = '<img id="base64image" src="' + data_uri + '"/><br><button class="btn btn-warning" onclick="SaveSnap();">Simpan Foto</button>';
-        });
-    }
-
-    function ShowCam() {
-        Webcam.set({
-            width: 320,
-            height: 240,
-            image_format: 'jpeg',
-            jpeg_quality: 100
-        });
-        Webcam.attach('#my_camera');
-    }
-
-    function SaveSnap() {
-        document.getElementById("loading").innerHTML = "Saving, please wait...";
-        var file = document.getElementById("base64image").src;
-        var formdata = new FormData();
-        formdata.append("base64image", file);
-        var ajax = new XMLHttpRequest();
-        ajax.addEventListener("load", function(event) {
-            uploadcomplete(event);
-        }, false);
-        ajax.open("POST", "upload.php");
-        ajax.send(formdata);
-    }
-
-    function uploadcomplete(event) {
-        document.getElementById("loading").innerHTML = "";
-        var image_return = event.target.responseText;
-        var showup = document.getElementById("uploaded").src = image_return;
-        document.getElementById("file_foto").value = image_return;
-        document.getElementById("saved_text").innerHTML = "Berhasil Tersimpan";
-    }
-    window.onload = ShowCam;
-</script>

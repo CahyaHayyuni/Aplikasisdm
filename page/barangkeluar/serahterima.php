@@ -151,8 +151,19 @@ if ($simpan) {
     $file_ttd = 'signatures/' . $signatureFileName;
     file_put_contents($file_ttd, $data_ttd);
 
+    // post email
+    $sql = $koneksi->query("select email from tb_anggota where nip='" . $nip . "'");
+    $data = $sql->fetch_assoc();
+    $to = $data['email'];
+    $subjek = 'Barang Keluar - Barang ' . $barang . 'Telah Dikirim';
+    $isi = 'Dear ' . $nama .
+        '<br><br>' .
+        'Nama Barang : ' . $barang . ' telah dikirim pada tanggal : ' . $tgl_serah . '. Ke Eksepedisi : ' . $ekspedisi;
+
     $sql = $koneksi->query("insert into tb_histori_barang_keluar (id, nip, nama, barang, tujuan, ekspedisi, tgl_terima, tgl_serah, divisi, file_foto, file_ttd) values ('$id', '$nip', '$nama', '$barang', '$tujuan', '$ekspedisi', '$tgl_terima', '$tgl_serah', '$divisi', '$file_foto', '$file_ttd')");
     $koneksi->query("delete from tb_barang_keluar where id ='$id'");
+
+    $email = kirim_email($to, $subjek, $isi);
 
     if ($sql) {
 ?>

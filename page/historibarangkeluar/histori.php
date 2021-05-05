@@ -28,7 +28,7 @@
 
                             $no = 1;
 
-                            $sql = $koneksi->query("select * from tb_histori_barang_keluar");
+                            $sql = $koneksi->query("select * from tb_histori_barang_keluar order by tgl_serah desc");
 
                             while ($data = $sql->fetch_assoc()) {
 

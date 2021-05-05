@@ -1,3 +1,4 @@
+<a href="?page=ekspedisi&aksi=tambah" class="btn btn-primary" style="margin-top: 8px;">Tambah Data</a>
 <div class="row">
     <div class="col-md-12">
         <!-- Advanced Tables -->
@@ -46,8 +47,6 @@
                     </table>
 
                 </div>
-
-                <a href="?page=ekspedisi&aksi=tambah" class="btn btn-primary" style="margin-top: 8px;">Tambah Data</a>
             </div>
         </div>
     </div>
