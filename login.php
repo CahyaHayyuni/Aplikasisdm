@@ -4,10 +4,10 @@ ob_start();
 session_start();
 
 $koneksi = new mysqli("localhost", "root", "", "db_aplikasisdm");
-$_SESSION['admin'] = isset($_SESSION['admin']) ? $_SESSION['admin'] : '';
+// $_SESSION['admin'] = isset($_SESSION['admin']) ? $_SESSION['admin'] : '';
 $_SESSION['user'] = isset($_SESSION['user']) ? $_SESSION['user'] : '';
-if ($_SESSION['admin'] || $_SESSION['user']) {
-
+// if ($_SESSION['admin'] || $_SESSION['user']) {
+if ($_SESSION['user']) {
     header("location:index.php");
 } else {
 ?>
@@ -110,19 +110,17 @@ if (isset($_POST['login'])) {
 
     if ($ketemu >= 1) {
 
-        session_start();
+        // if ($data['level'] == "admin") {
 
-        if ($data['level'] == "admin") {
+        //     $_SESSION['admin'] = $data['id'];
 
-            $_SESSION['admin'] = $data['id'];
+        //     header("location:index.php");
+        // } else if ($data['level'] == "user") {
 
-            header("location:index.php");
-        } else if ($data['level'] == "user") {
-
-            $_SESSION['user'] = $data['id'];
-
-            header("location:index.php");
-        }
+        $_SESSION['user'] = $data['id'];
+        header("location:index.php");
+        // }
+        $_SESSION['nama'] = $data['nama'];
     } else {
 ?>
         <script>

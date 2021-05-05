@@ -9,7 +9,8 @@ include "email.php";
 
 $koneksi = new mysqli("localhost", "root", "", "db_aplikasisdm");
 
-if ($_SESSION['admin'] || $_SESSION['user']) {
+// if ($_SESSION['admin'] || $_SESSION['user']) {
+if ($_SESSION['user']) {
 ?>
 
     <!DOCTYPE html>
@@ -61,7 +62,15 @@ if ($_SESSION['admin'] || $_SESSION['user']) {
                     </a>
                 </div>
                 <div style="color: white;padding: 15px 50px 5px 50px;float: right;font-size: 16px;">
-                    <?php echo date('d-m-Y'); ?> &nbsp; <a href="logout.php" class="btn btn-danger square-btn-adjust">Logout</a>
+                    <?php echo "User : " . $_SESSION['nama']; ?>&nbsp;&nbsp;&nbsp;
+                    <?php echo "Tanggal : " . date('d-m-Y'); ?> &nbsp;
+                    <div class="btn-group ">
+                        <button data-toggle="dropdown" class="btn btn-primary dropdown-toggle">Aksi <span class="caret"></span></button>
+                        <ul class="dropdown-menu">
+                            <li><a href="logout.php">Logout</a></li>
+                            <li><a href="#">Tutorial</a></li>
+                        </ul>
+                    </div>
                 </div>
             </nav>
             <!-- /. NAV TOP  -->
@@ -73,31 +82,31 @@ if ($_SESSION['admin'] || $_SESSION['user']) {
                         </li>
 
                         <li>
-                            <a href="index.php"><i class="fa fa-dashboard fa-2x"></i> Dashboard</a>
+                            <a href="index.php"><i class="fa fa-dashboard"></i> Dashboard</a>
                         </li>
 
                         <li>
-                            <a href="?page=anggota"><i class="fa fa-users fa-2x"></i> Data Anggota</a>
+                            <a href="?page=anggota"><i class="fa fa-users"></i> Data Anggota</a>
                         </li>
 
                         <li>
-                            <a href="?page=ekspedisi"><i class="fa fa-users fa-2x"></i> Data Ekpedisi</a>
+                            <a href="?page=ekspedisi"><i class="fa fa-users"></i> Data Ekpedisi</a>
                         </li>
 
                         <li>
-                            <a href="?page=barangmasuk"><i class="fa fa-download fa-2x"></i> Barang & Surat Masuk</a>
+                            <a href="?page=barangmasuk"><i class="fa fa-download"></i> Barang & Surat Masuk</a>
                         </li>
 
                         <li>
-                            <a href="?page=barangkeluar"><i class="fa fa-upload fa-2x"></i> Barang & Surat Keluar</a>
+                            <a href="?page=barangkeluar"><i class="fa fa-upload"></i> Barang & Surat Keluar</a>
                         </li>
 
                         <li>
-                            <a href="?page=historibarangmasuk"><i class="fa fa-history fa-2x"></i> Histori Barang & Surat Masuk</a>
+                            <a href="?page=historibarangmasuk"><i class="fa fa-history"></i> Histori Barang & Surat Masuk</a>
                         </li>
 
                         <li>
-                            <a href="?page=historibarangkeluar"><i class="fa fa-history fa-2x"></i> Histori Barang & Surat Keluar</a>
+                            <a href="?page=historibarangkeluar"><i class="fa fa-history"></i> Histori Barang & Surat Keluar</a>
                         </li>
                     </ul>
                 </div>
