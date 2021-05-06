@@ -20,13 +20,13 @@ $tampil = $sql->fetch_assoc();
                 <form method="POST">
                     <div class="form-group">
                         <label>Singkatan</label>
-                        <input class="form-control" name="singkatan" value="<?php echo $tampil['singkatan'] ?>" />
+                        <input class="form-control" name="singkatan" value="<?php echo $tampil['singkatan'] ?>" required />
 
                     </div>
 
                     <div class=" form-group">
                         <label>Nama Ekspedisi</label>
-                        <input class="form-control" name="nama_ekspedisi" value="<?php echo $tampil['nama_ekspedisi'] ?>" />
+                        <input class="form-control" name="nama_ekspedisi" value="<?php echo $tampil['nama_ekspedisi'] ?>" required />
 
                     </div>
 

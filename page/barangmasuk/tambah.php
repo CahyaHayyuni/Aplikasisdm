@@ -38,7 +38,7 @@
 
                     <div class="form-group">
                         <label>Barang</label>
-                        <input class="form-control" name="barang" />
+                        <input class="form-control" name="barang" required />
 
                     </div>
 
@@ -56,7 +56,7 @@
 
                     <div class="form-group">
                         <label>Tanggal Datang</label>
-                        <input class="form-control" name="tgl_terima" type="date" />
+                        <input class="form-control" name="tgl_terima" type="date" required />
 
                     </div>
 

@@ -9,35 +9,34 @@
                 <form method="POST">
                     <div class="form-group">
                         <label>Nip</label>
-                        <input class="form-control" name="nip" />
+                        <input class="form-control" name="nip" required />
 
                     </div>
 
                     <div class="form-group">
                         <label>Nama</label>
-                        <input class="form-control" name="nama" />
+                        <input class="form-control" name="nama" required />
 
                     </div>
 
                     <div class="form-group">
                         <label>Email</label>
-                        <input class="form-control" name="email" />
-
+                        <input class="form-control" name="email" required />
                     </div>
 
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                         <label>Tempat Lahir</label>
-                        <input class="form-control" name="tmpt_lahir" />
+                        <input class="form-control" name="tmpt_lahir" required />
 
                     </div>
 
                     <div class="form-group">
                         <label>Tanggal Lahir</label>
-                        <input class="form-control" type="date" name="tgl_lahir" />
+                        <input class="form-control" type="date" name="tgl_lahir" required />
 
-                    </div>
+                    </div> -->
 
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                         <label>Jenis Kelamin</label><br />
                         <label class="checkbox-inline">
                             <input type="checkbox" value="l" name="jk" /> Laki-laki
@@ -46,6 +45,15 @@
                             <input type="checkbox" value="p" name="jk" /> Perempuan
                         </label>
 
+                    </div> -->
+
+                    <div class="form-group">
+                        <label>User Login</label>
+                        <select class="form-control" name="user_login">
+                            <option value="notuser">Not User</option>
+                            <option value="user">User</option>
+                            <option value="admin">Admin</option>
+                        </select>
                     </div>
 
                     <div class="form-group">
@@ -83,12 +91,15 @@ $tmpt_lahir = isset($_POST['tmpt_lahir']) ? $_POST['tmpt_lahir'] : '';
 $tgl_lahir = isset($_POST['tgl_lahir']) ? $_POST['tgl_lahir'] : '';
 $jk = isset($_POST['jk']) ? $_POST['jk'] : '';
 $divisi = isset($_POST['divisi']) ? $_POST['divisi'] : '';
+$user_login = isset($_POST['user_login']) ? $_POST['user_login'] : '';
 
 $simpan = isset($_POST['simpan']) ? $_POST['simpan'] : '';
 
 if ($simpan) {
 
-    $sql = $koneksi->query("insert into tb_anggota (nip, nama, tempat_lahir, tgl_lahir, jk, divisi, email) values ('$nip', '$nama', '$tmpt_lahir', '$tgl_lahir', '$jk', '$divisi', '$email')");
+    // $sql = $koneksi->query("insert into tb_anggota (nip, nama, tempat_lahir, tgl_lahir, jk, divisi, email) values ('$nip', '$nama', '$tmpt_lahir', '$tgl_lahir', '$jk', '$divisi', '$email')");
+    $sql = $koneksi->query("insert into tb_anggota (nip, nama, password, email, user_login ) values ('$nip', '$nama', 'Pelindo3', '$email', '$user_login')");
+
 
     if ($sql) {
 ?>

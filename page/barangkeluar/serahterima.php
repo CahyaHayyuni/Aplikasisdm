@@ -68,7 +68,7 @@ $divisi = $tampil['divisi'];
 
                     <div class="form-group">
                         <label>Tanggal Terima</label>
-                        <input class="form-control" name="tgl_terima" type="date" />
+                        <input class="form-control" name="tgl_terima" type="date" required />
                     </div>
 
                     <div class="form-group">

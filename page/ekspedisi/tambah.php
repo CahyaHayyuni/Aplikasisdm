@@ -9,13 +9,13 @@
                 <form method="POST">
                     <div class="form-group">
                         <label>Singkatan</label>
-                        <input class="form-control" name="singkatan" />
+                        <input class="form-control" name="singkatan" required />
 
                     </div>
 
                     <div class="form-group">
                         <label>Nama Ekspedisi</label>
-                        <input class="form-control" name="nama_ekspedisi" />
+                        <input class="form-control" name="nama_ekspedisi" required />
 
                     </div>
 

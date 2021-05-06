@@ -50,7 +50,7 @@ $divisi = $tampil['divisi'];
 
                     <div class="form-group">
                         <label>Penerima Fisik</label>
-                        <input class="form-control" name="penerima_fisik" />
+                        <input class="form-control" name="penerima_fisik" required />
                     </div>
 
                     <div class="form-group">
@@ -60,7 +60,7 @@ $divisi = $tampil['divisi'];
 
                     <div class="form-group">
                         <label>Tanggal Serah</label>
-                        <input class="form-control" name="tgl_serah" type="date" />
+                        <input class="form-control" name="tgl_serah" type="date" required />
                     </div>
 
                     <div class="form-group">

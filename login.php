@@ -101,7 +101,7 @@ if (isset($_POST['login'])) {
     $pass = $_POST['pass'];
 
 
-    $sql = $koneksi->query("select * from tb_user where username='$username' and password='$pass'");
+    $sql = $koneksi->query("select * from tb_anggota where nip='$username' and password='$pass'");
 
     $data = $sql->fetch_assoc();
 
